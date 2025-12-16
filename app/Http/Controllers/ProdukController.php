@@ -29,16 +29,16 @@ class ProdukController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nama_produk'       => 'required|string|mas:255',
-            'gambar_produk'     => 'nullable|string',
-            'tgl_pembuatan'     => 'required|date',
-            'tgl_kadarluarsa'   => 'required',
-            'kategori_produk'   => 'required|string',
-            'nama_mitra'        => 'required|string',
+            'nama_produk' => 'required|string|max:255',
+            'gambar_produk' => 'nullable|string',
+            'tgl_pembuatan' => 'required|date',
+            'tgl_kadarluarsa' => 'required',
+            'kategori_produk' => 'required|string',
+            'nama_mitra' => 'required|string',
         ]);
-    
+
         $produk = Produk::create($validated);
-        return redirect()->json($produk, 201);
+        return response()->json($produk, 201);
     }
 
     /**
@@ -63,15 +63,15 @@ class ProdukController extends Controller
     public function update(Request $request, Produk $produk)
     {
         $validated = $request->validate([
-            'nama_produk'       => 'required|string|mas:255',
-            'gambar_produk'     => 'nullable|string',
-            'tgl_pembuatan'     => 'required|date',
-            'tgl_kadarluarsa'   => 'required',
-            'kategori_produk'   => 'required|string',
-            'nama_mitra'        => 'required|string',
+            'nama_produk' => 'required|string|max:255',
+            'gambar_produk' => 'nullable|string',
+            'tgl_pembuatan' => 'required|date',
+            'tgl_kadarluarsa' => 'required',
+            'kategori_produk' => 'required|string',
+            'nama_mitra' => 'required|string',
         ]);
 
-        $produk->update ($validated);
+        $produk->update($validated);
         return response()->json($produk);
     }
 
@@ -81,6 +81,6 @@ class ProdukController extends Controller
     public function destroy(Produk $produk)
     {
         $produk->delete();
-        return response()->json(null,0);
+        return response()->json(null, 204);
     }
 }
