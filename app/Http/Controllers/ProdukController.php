@@ -32,7 +32,7 @@ class ProdukController extends Controller
             'nama_produk' => 'required|string|max:255',
             'gambar_produk' => 'nullable|string',
             'tgl_pembuatan' => 'required|date',
-            'tgl_kadarluarsa' => 'required',
+            'tgl_kadarluarsa' => 'required|date',
             'kategori_produk' => 'required|string',
             'nama_mitra' => 'required|string',
         ]);
@@ -54,7 +54,7 @@ class ProdukController extends Controller
      */
     public function edit(Produk $produk)
     {
-        //
+
     }
 
     /**
@@ -64,9 +64,9 @@ class ProdukController extends Controller
     {
         $validated = $request->validate([
             'nama_produk' => 'required|string|max:255',
-            'gambar_produk' => 'nullable|string',
-            'tgl_pembuatan' => 'required|date',
-            'tgl_kadarluarsa' => 'required',
+            // 'gambar_produk' => 'nullable|string',
+            // 'tgl_pembuatan' => 'required|date',
+            // 'tgl_kadarluarsa' => 'required|date',
             'kategori_produk' => 'required|string',
             'nama_mitra' => 'required|string',
         ]);
